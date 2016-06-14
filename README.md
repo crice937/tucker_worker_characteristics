@@ -1,0 +1,1 @@
+# tucker_worker_characteristics
