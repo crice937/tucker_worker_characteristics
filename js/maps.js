@@ -22,7 +22,7 @@ require([
       // Calcite-maps
       "calcite-maps/calcitemaps-v0.2",
       "dojo/domReady!"
-      ], function(MapView, WebMap, Search, Legend) {
+      ], function(MapView, WebMap, Legend, Search) {
 
       // Webmap  
       var webmap = new WebMap({
@@ -50,9 +50,18 @@ require([
           }]
         });
 
-        view.ui.add(legend, "top-right");
+        view.ui.add(legend, "bottom-right");
 
         //Locator
-        
+        var searchWidget = new Search({
+          view: view
+        });
+        searchWidget.startup();
+
+      // Add the search widget to the top left corner of the view
+      view.ui.add(searchWidget, {
+        position: "top-right",
+        index: 0
       });
+    });
     });
