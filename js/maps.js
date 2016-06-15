@@ -14,6 +14,7 @@ require([
       "esri/views/MapView",
       "esri/WebMap",
       "esri/widgets/Legend",
+      "esri/widgets/Search",
 
       // Bootstrap
       "bootstrap/Collapse", 
@@ -21,9 +22,9 @@ require([
       // Calcite-maps
       "calcite-maps/calcitemaps-v0.2",
       "dojo/domReady!"
-      ], function(MapView, WebMap, Legend) {
+      ], function(MapView, WebMap, Search, Legend) {
 
-      // Webmap 
+      // Webmap  
       var webmap = new WebMap({
         portalItem: {
           id: "6de0c1835caa41ff893505c003123f6d"
@@ -48,6 +49,10 @@ require([
             title: ""
           }]
         });
+
         view.ui.add(legend, "top-right");
+
+        //Locator
+        
       });
     });
