@@ -15,6 +15,7 @@ require([
       "esri/WebMap",
       "esri/widgets/Legend",
       "esri/widgets/Search",
+      "esri/widgets/Home",
 
       // Bootstrap
       "bootstrap/Collapse", 
@@ -22,7 +23,7 @@ require([
       // Calcite-maps
       "calcite-maps/calcitemaps-v0.2",
       "dojo/domReady!"
-      ], function(MapView, WebMap, Legend, Search) {
+      ], function(MapView, WebMap, Legend, Search, Home) {
 
       // Webmap  
       var webmap = new WebMap({
@@ -58,10 +59,16 @@ require([
         });
         searchWidget.startup();
 
-      // Add the search widget to the top left corner of the view
-      view.ui.add(searchWidget, {
-        position: "top-right",
-        index: 0
+        view.ui.add(searchWidget, {
+          position: "top-right",
+          index: 0
+        });
+
+        //Home button
+        var homeWidget = new Home({
+          view: view
+        });
+
+        view.ui.add(homeWidget, "top-left");
       });
-    });
     });
